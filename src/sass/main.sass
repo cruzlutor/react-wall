@@ -1,0 +1,145 @@
+$green: #38C576
+$gray: #F4F4F4
+$gray-dark: #D9D9D7
+$grey-darker: #A1A1A1
+$blue: #488BF4
+$yellow: #F5C322
+$red: #F65B5F
+$white: #ffffff
+$back: #000000
+
+$colors: ("green": ($green),"blue": ($blue),"red": ($red),"yellow": ($yellow));
+
+.has-text-right
+  text-align: right
+  
+.has-text-left
+  text-align: left
+
+.is-green
+  color: $green
+
+.is-blue
+  color: $blue
+
+.is-red
+  color: $red
+
+.is-yellow
+  color: $yellow
+
+.is-pulled-right 
+  float: right
+
+.is-clipped 
+  overflow: hidden !important
+
+.has-shadow
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1)
+
+.button
+  border: 0px
+  padding: .55em 1.75em
+  @each $name, $value in $colors
+    &.is-#{$name}
+      color: $white
+      background: $value
+
+.input
+  outline: none
+  font-size: 1em
+
+.is-fullwidth
+  width: 100%
+
+body, html
+  padding: 0px
+  margin: 0px
+  font-size: 16px
+  font-family: 'Roboto', sans-serif
+
+body
+  background: $gray
+
+
+.state-input
+  border: 0px
+
+.wrapper
+  max-width: 700px
+  height: 100vh
+  margin: auto
+
+.box
+  background: $white
+  border: 1px $gray-dark solid
+  margin: 2rem 0
+  border-radius: 3px
+  box-sizing: border-box
+
+  &-row
+    border-bottom: 1px $gray-dark solid
+    padding: 1.25rem
+    box-sizing: border-box
+
+    &.is-dark
+      background: #F6F6F4
+      
+    &:last-child
+      border-bottom: 0px
+
+
+.story
+  &-avatar
+    position: absolute
+    width: 60px
+    
+    figure
+      border-radius: 50%
+      overflow: hidden
+      margin: 0px
+      img
+        width: 100%
+        display: block
+
+  &-username
+    color: $green
+    font-weight: 500
+
+  &-content
+    padding-left: 80px
+    
+  &-time
+    color: $grey-darker
+    font-size: .75rem
+    
+  &-reactions
+    display: flex
+    align-items: center
+
+    &-icon
+      width: 20px
+      height: 20px
+      border-radius: 50%
+      margin-left: -8px
+      border: 2px $white solid
+      @each $name, $value in $colors
+        &.is-#{$name}
+          color: $white
+          background: $value
+    &-count
+      color: $green
+      font-weight: 500
+      padding: 0 .5em
+      font-size: 14px
+      
+    &-comments
+      font-size: 14px
+      flex: 1
+      color: $grey-darker
+
+  &-comments
+    &-list
+      margin: 0px
+      padding: 0px
+      list-style: none
