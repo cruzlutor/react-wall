@@ -3,6 +3,11 @@ import Entry from './../entry'
 
 
 export default class FeedList extends React.Component {
+
+  componentDidMount(){
+    
+  }
+  
   render(){
     return(
       <div className="feed-list">
