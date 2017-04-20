@@ -1,69 +1,13 @@
-$green: #38C576
-$gray: #F4F4F4
-$gray-dark: #D9D9D7
-$grey-darker: #A1A1A1
-$blue: #488BF4
-$yellow: #F5C322
-$red: #F65B5F
-$white: #ffffff
-$back: #000000
+@import "variables.sass"
+@import "base.sass"
+@import "helpers.sass"
+@import "elements/all.sass"
 
-$colors: ("green": ($green),"blue": ($blue),"red": ($red),"yellow": ($yellow));
+.feed
+  &-form
+    &-input
+      border: 0px
 
-.has-text-right
-  text-align: right
-  
-.has-text-left
-  text-align: left
-
-.is-green
-  color: $green
-
-.is-blue
-  color: $blue
-
-.is-red
-  color: $red
-
-.is-yellow
-  color: $yellow
-
-.is-pulled-right 
-  float: right
-
-.is-clipped 
-  overflow: hidden !important
-
-.has-shadow
-  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1)
-
-.button
-  border: 0px
-  padding: .55em 1.75em
-  @each $name, $value in $colors
-    &.is-#{$name}
-      color: $white
-      background: $value
-
-.input
-  outline: none
-  font-size: 1em
-
-.is-fullwidth
-  width: 100%
-
-body, html
-  padding: 0px
-  margin: 0px
-  font-size: 16px
-  font-family: 'Roboto', sans-serif
-
-body
-  background: $gray
-
-
-.state-input
-  border: 0px
 
 .wrapper
   max-width: 700px
@@ -73,13 +17,13 @@ body
 .box
   background: $white
   border: 1px $gray-dark solid
-  margin: 2rem 0
+  margin: 32px 0
   border-radius: 3px
   box-sizing: border-box
 
   &-row
     border-bottom: 1px $gray-dark solid
-    padding: 1.25rem
+    padding: 18px
     box-sizing: border-box
 
     &.is-dark
@@ -88,34 +32,56 @@ body
     &:last-child
       border-bottom: 0px
 
+.entry
+  
+  &-post
+    display: flex
 
-.story
-  &-avatar
-    position: absolute
-    width: 60px
-    
-    figure
-      border-radius: 50%
-      overflow: hidden
-      margin: 0px
-      img
-        width: 100%
-        display: block
+    &.is-comment
+      padding-bottom: 20px
 
-  &-username
-    color: $green
-    font-weight: 500
+    &.is-comment &-avatar
+      width: 100px
 
-  &-content
-    padding-left: 80px
+    &.is-comment &-username
+      font-weight: 500
+      padding-right: 10px
+      
+    &-avatar
+      width: 80px
+      
+      figure
+        width: 50px
+        border-radius: 50%
+        overflow: hidden
+        margin: 0 auto 0 0
+
+        img
+          width: 100%
+          display: block
+
+    &-info
+      flex: 1
+
+    &-username
+      color: $green
+      font-weight: 500
+
+    &-time
+      color: $grey-darker
+      font-size: .75rem
     
-  &-time
-    color: $grey-darker
-    font-size: .75rem
-    
+    &-actions
+      a
+        text-decoration: none
+        color: $green
+        margin-right: 50px
+
+
   &-reactions
     display: flex
     align-items: center
+    padding: 10px 32px
 
     &-icon
       width: 20px
@@ -127,10 +93,11 @@ body
         &.is-#{$name}
           color: $white
           background: $value
+
     &-count
       color: $green
       font-weight: 500
-      padding: 0 .5em
+      padding: 0 10px
       font-size: 14px
       
     &-comments
@@ -139,7 +106,8 @@ body
       color: $grey-darker
 
   &-comments
-    &-list
-      margin: 0px
-      padding: 0px
-      list-style: none
+    font-size: 14px  
+    // background: $gray
+
+    &-textarea
+      height: 60px

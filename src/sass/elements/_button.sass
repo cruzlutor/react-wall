@@ -1,0 +1,7 @@
+.button
+  border: 0px
+  padding: .55em 1.75em
+  @each $name, $value in $colors
+    &.is-#{$name}
+      color: $white
+      background: $value
