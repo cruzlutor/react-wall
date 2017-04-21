@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.24.1",
+    "babel-loader": "^6.4.1",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.4.0",
     "babel-preset-react": "^6.24.1",
@@ -22,7 +23,10 @@
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
+    "moment": "^2.18.1",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "smooth-scroll": "github:cferdinandi/smooth-scroll"
   }
 }

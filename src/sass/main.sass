@@ -7,7 +7,8 @@
   &-form
     &-input
       border: 0px
-
+      &::placeholder
+        color: $green
 
 .wrapper
   max-width: 700px
@@ -17,7 +18,7 @@
 .box
   background: $white
   border: 1px $gray-dark solid
-  margin: 32px 0
+  margin: 20px 20px
   border-radius: 3px
   box-sizing: border-box
 
@@ -32,8 +33,62 @@
     &:last-child
       border-bottom: 0px
 
+
+.reaction-icon
+  width: 20px
+  height: 20px
+  border-radius: 50%
+  border: 2px $white solid
+  @each $name, $value in $colors
+    &.is-#{$name}
+      color: $white
+      background: $value
+
+
 .entry
   
+  &-buttons.is-hidden-tablet &-actions
+    &-item
+      padding: 16px
+      flex: 1
+      &:first-child
+        border-right: 1px $gray-dark solid
+
+  &-buttons.is-hidden-mobile &-actions
+    &-item
+      margin-right: 30px
+
+  &-actions
+    display: flex
+
+    &-item
+      text-align: center
+      color: $green
+      cursor: pointer
+      position: relative
+
+      &:hover &-popup
+        display: flex
+
+      &-popup
+        display: flex
+        background: $white
+        border: 1px $gray-dark solid
+        border-radius: 20px
+        padding: 5px
+        position: absolute
+        top: -30px
+        left: 50%
+        transform: translateX(-50%)
+        cursor: default
+
+        .reaction-icon
+          margin: 0 5px 
+          transition: transform .2s
+          cursor: pointer
+          &:hover
+            transform: scale(1.3)
+
   &-post
     display: flex
 
@@ -68,31 +123,16 @@
       font-weight: 500
 
     &-time
+      font-size: 12px
       color: $grey-darker
-      font-size: .75rem
-    
-    &-actions
-      a
-        text-decoration: none
-        color: $green
-        margin-right: 50px
-
 
   &-reactions
     display: flex
     align-items: center
-    padding: 10px 32px
+    padding: 10px 16px
 
-    &-icon
-      width: 20px
-      height: 20px
-      border-radius: 50%
-      margin-left: -8px
-      border: 2px $white solid
-      @each $name, $value in $colors
-        &.is-#{$name}
-          color: $white
-          background: $value
+    .reaction-icon
+      margin-right: -6px
 
     &-count
       color: $green
@@ -107,7 +147,15 @@
 
   &-comments
     font-size: 14px  
-    // background: $gray
 
     &-textarea
       height: 60px
+
+
+@media (max-width: 768px)
+  .entry
+    &-post
+      &.is-comment &-avatar
+        width: 70px
+      &-avatar
+        width: 70px

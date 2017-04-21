@@ -1,13 +1,12 @@
 import React from 'react'
 
-export default class FeedForm extends React.Component {
-  render(){
-    return(
-      <nav className="nav has-shadow">
-        <div className="nav-left"></div>
-        <div className="nav-center"><strong>Domocilios Test</strong></div>
-        <div className="nav-right">Hola Luis</div>
-      </nav>
-    )
-  }
+export default function TopNav(props) {
+  return(
+    <nav className="nav has-shadow">
+      <div className="nav-left"></div>
+      <div className="nav-center"><strong>Domicilios Test</strong></div>
+      <div className="nav-right is-hidden-mobile">Hola Luis</div>
+      <div className="nav-right is-hidden-tablet">&#9776;</div>
+    </nav>
+  )
 }
